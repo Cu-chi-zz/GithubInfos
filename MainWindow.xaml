@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GithubInfos"
+		xmlns:gif="http://wpfanimatedgif.codeplex.com"
+		gif:ImageBehavior.AnimateInDesignMode="True"
         mc:Ignorable="d"
         Title="Github Informations"
 		Height="400"
@@ -11,7 +13,7 @@
 		ResizeMode="NoResize"
 		AllowsTransparency="True"
 		WindowStyle="None"
-		Opacity="0.7"
+		Opacity="0.85"
 		Background="Transparent"
 		>
     <Grid>
@@ -39,7 +41,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button Content="START" HorizontalAlignment="Left" Margin="490,38,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontWeight="Bold" Click="Button_Click" Foreground="White">
+        <Button Content="SEARCH" HorizontalAlignment="Left" Margin="135,38,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontWeight="Bold" Click="Button_Click" Foreground="White">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -63,7 +65,39 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-		<TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Margin="10,38,0,0" Text="Github Username" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="#FF0045D8" Foreground="White" Background="#FF3072FF" GotFocus="usernameTextBox_GotFocus" LostFocus="usernameTextBox_LostFocus"/>
-		<TextBox x:Name="reponameTextBox" HorizontalAlignment="Left" Margin="135,38,0,0" Text="Repository Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="#FF0045D8" Foreground="White" Background="#FF3072FF" GotFocus="reponameTextBox_GotFocus" LostFocus="reponameTextBox_LostFocus"/>
+        <TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Margin="10,38,0,0" Text="Github Username" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="#FF0045D8" Foreground="White" Background="#FF3072FF" GotFocus="usernameTextBox_GotFocus" LostFocus="usernameTextBox_LostFocus"/>
+        <ComboBox x:Name="repoComboBox" HorizontalAlignment="Left" Margin="240,38,0,0" VerticalAlignment="Top" Width="245" Height="17" IsReadOnly="True" IsDropDownOpen="False" FontFamily="Arial">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF1F1F1" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <Image x:Name="loadingGif" Height="32" Width="32" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="/64x64.gif" Margin="558,358,10,10" Visibility="Hidden" />
+		<Button x:Name="startButton" Content="START" IsEnabled="False" HorizontalAlignment="Left" Margin="490,38,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontWeight="Bold" Foreground="White" Click="startButton_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="135" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF002F4F"/>
+                    <GradientStop Color="#FF3FB1FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
